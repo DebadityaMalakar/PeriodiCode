@@ -44,8 +44,16 @@ def Oxygen_iter(sequence):
     except TypeError:
         print("Error: 'Oxygen.iter' requires an iterable sequence.")
 
+def Iodine(*args):
+    try:
+        for arg in args:
+            result = eval(arg)
+            print(result)
+    except SyntaxError:
+        print("Error: Invalid syntax in the Iodine function.")
+
 while True:
-    print("Mendeleev:::")
+    print(":::Mendeleev:::")
     x = input()
 
     if "\n" in x:
@@ -99,3 +107,10 @@ while True:
                 else:
                     sequence = a[1].rstrip(";")
                     Oxygen_iter(sequence)
+
+            elif a[0] == "Iodine":
+                if len(a) < 2:
+                    print("Error: 'Iodine' requires one or more arguments.")
+                else:
+                    conditions = a[1:]
+                    Iodine(*conditions)
